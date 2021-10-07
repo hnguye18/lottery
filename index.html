@@ -1,6 +1,27 @@
 <!doctype html>
 <html>
 <head>
+    <style type = "text/css">
+        .a{color: #52888B};
+    </style>
+    <style type = "text/css">
+        .b{color: #9C2D2F};
+    </style>
+    <style type = "text/css">
+        .c{color: #42318A};
+    </style>
+    <style type = "text/css">
+        .d{color: #52888B; font-size: 25pt};
+    </style>
+    <style type = "text/css">
+        .e{color: #4EA058};
+    </style>
+    <style type = "text/css">
+        .f{color: #392C2C};
+    </style>
+    <style type = "text/css">
+        .g{color: #315132};
+    </style>
 <meta charset="utf-8">
     <title>Lottery</title>
 </head>
@@ -20,22 +41,22 @@
         win = s.split(" ")
         
         // Player's 5 numbers
-        document.write("Your 5 numbers are: ")
+        document.write("<span class = 'a'>Your 5 numbers are: </span>");
         for (let i = 0; i < 5; i++) {
             document.write(player[i] + "    ");
         }
         
         // Player's lucky ball number
-        document.write("<br/>Your lucky ball number is: " + luckyb);
+        document.write("<br/><span class = 'b'>Your lucky ball number is: </span>" + luckyb);
         
         // The five winning numbers
-        document.write("<br/>The 5 winning numbers are: ")
+        document.write("<br/><span class = 'c'>The 5 winning numbers are: </span>")
         for (let i = 0; i < 5; i++) {
             document.write(win[i] + "    ");
         }
         
         // The winning lucky ball number
-        document.write("<br/>The winning lucky ball number is: " + lb);
+        document.write("<br/><span class = 'd'>The winning lucky ball number is: </span>" + lb);
         
         // Calculating matches
         match = 0;
@@ -48,11 +69,11 @@
         }
         
         // The number of matches
-        document.write("<br/>For the first 5 winning numbers, your number of matches were: " + match);
+        document.write("<br/><span class = 'e'>For the first 5 winning numbers, your number of matches were: </span>" + match);
         
         // Whether or not lucky ball matched
         if (Boolean(luckyb == lb)) {
-            document.write("<br/>Your lucky ball matched!");
+            document.write("<br/><span class = 'f'>Your lucky ball matched!</span>");
         } else {
             document.write("<br/>Your lucky ball did not match.");
         }
@@ -98,7 +119,7 @@
         if (payout == 7000) {
             extra = " a WEEK for LIFE";
         }
-        document.write("<br/>Your payout is: $" + payout + extra);
+        document.write("<br/><span class = 'g'>Your payout is: $</span>" + payout + extra);
     </script>
 </body>
 </html>
