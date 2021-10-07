@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>Lottery</title>
+</head>
+    
+<body>
+    <script language = "javascript">
+        player = [0, 0, 0, 0, 0];
+        for (let i = 0; i < 5; i++) {
+            player[i] = Math.round((Math.random() * 48) + 1);
+        }
+        luckyb = Math.round((Math.random() * 18) + 1);
+        player.sort(function(a, b){return a - b});
+        
+        win = [0, 0, 0, 0, 0];
+        s = prompt("Enter the 5 winning numbers: (separated by spaces)");
+        lb = prompt("Enter the lucky ball number: ");
+        win = s.split(" ")
+        
+        // Player's 5 numbers
+        document.write("Your 5 numbers are: ")
+        for (let i = 0; i < 5; i++) {
+            document.write(player[i] + "    ");
+        }
+        
+        // Player's lucky ball number
+        document.write("<br/>Your lucky ball number is: " + luckyb);
+        
+        // The five winning numbers
+        document.write("<br/>The 5 winning numbers are: ")
+        for (let i = 0; i < 5; i++) {
+            document.write(win[i] + "    ");
+        }
+        
+        // The winning lucky ball number
+        document.write("<br/>The winning lucky ball number is: " + lb);
+        
+        // Calculating matches
+        match = 0;
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (player[i] == win[j]) {
+                    match++;
+                }
+            }
+        }
+        
+        // The number of matches
+        document.write("<br/>For the first 5 winning numbers, your number of matches were: " + match);
+        
+        // Whether or not lucky ball matched
+        if (Boolean(luckyb == lb)) {
+            document.write("<br/>Your lucky ball matched!");
+        } else {
+            document.write("<br/>Your lucky ball did not match.");
+        }
+        
+        // Payout calculation
+        
+        payout = 0;
+        if (Boolean(luckyb == lb)) {
+            if (match == 0) {
+                payout = 4;
+            } else if (match == 1) {
+                payout = 6;
+            } else if (match == 2) {
+                payout = 25;
+            } else if (match == 3) {
+                payout = 150;
+            } else if (match == 4) {
+                payout = 5000;
+            } else {
+                payout = 7000;
+            }
+        } else {
+            if (match == 2) {
+                payout = 3;
+            } else if (match == 3) {
+                payout = 20;
+            } else if (match == 4) {
+                payout = 200;
+            } else if (match == 5) {
+                payout = 25000;
+            } else {
+                payout = 0;
+            }
+        }
+        
+        // Payout output
+        extra = "";
+        
+        if (payout == 25000) {
+            extra = " a YEAR for LIFE";
+        }
+        
+        if (payout == 7000) {
+            extra = " a WEEK for LIFE";
+        }
+        document.write("<br/>Your payout is: " + payout + extra);
+    </script>
+</body>
+</html>
